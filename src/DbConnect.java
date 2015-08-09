@@ -43,7 +43,7 @@ public class DbConnect {
 			stmt = con.createStatement();
 			String query = "CREATE TABLE Category(Id INT PRIMARY KEY NOT NULL, Name VARCHAR(255))";
 			stmt.executeUpdate(query);
-			
+
 			query = "INSERT INTO Category(Id, Name) VALUES (1, 'Film & Animation')";
 			stmt.executeUpdate(query);
 			query = "INSERT INTO Category(Id, Name) VALUES (2, 'Autos & Vehicles')";
@@ -108,15 +108,12 @@ public class DbConnect {
 			stmt.executeUpdate(query);
 			query = "INSERT INTO Category(Id, Name) VALUES (44, 'Trailers')";
 			stmt.executeUpdate(query);
-			
-			
-			
+
 			query = "CREATE TABLE Ads(Keyword VARCHAR(255),"
-					+ "Category_Id INT,"					
-					+ "Image_path VARCHAR(255),"
-					+ "FOREIGN KEY(Category_Id) REFERENCES Category(Id))";									
+					+ "Category_Id INT," + "Image_path VARCHAR(255),"
+					+ "FOREIGN KEY(Category_Id) REFERENCES Category(Id))";
 			stmt.executeUpdate(query);
-			
+
 			query = "INSERT INTO Ads(Keyword, Category_Id, Image_path) values ('Star, Tensports,F1, Race, Cricket, Tennis, Kabaddi, Sachin, Brett lee', 17, '')";
 			stmt.executeUpdate(query);
 			query = "INSERT INTO Ads(Keyword, Category_Id, Image_path) values ('Java, Tutorial, Programming, Python, .Net, Excersizes, Sample, Javascript', 27, '')";
@@ -133,10 +130,10 @@ public class DbConnect {
 			stmt.executeUpdate(query);
 			query = "INSERT INTO Ads(Keyword, Category_Id, Image_path) values ('Daddys, home, car, official, trailor, furniture, housing, movie ', 44, '')";
 			stmt.executeUpdate(query);
-			
+
 			stmt.close();
 			con.close();
-			
+
 		} catch (Exception ex) {
 			System.err
 					.println(ex.getClass().getName() + ": " + ex.getMessage());
